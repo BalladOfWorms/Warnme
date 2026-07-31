@@ -885,6 +885,15 @@
         <effects></effects>
     </ability>
     <ability>
+        <n>Amorphic Spikes</n>
+        <self_target>false</self_target>
+        <aoe>false</aoe>
+        <fan>false</fan>
+        <cone>false</cone>
+        <type>Physical</type>
+        <effects></effects>
+    </ability>
+    <ability>
         <n>Amplification</n>
         <id>1821</id>
         <cat>7</cat>
@@ -1863,7 +1872,7 @@
         <cone>false</cone>
         <shape>25'</shape>
         <type>Magical</type>
-        <effects>Reset Enmity</effects>
+        <effects>Enmity Reset</effects>
     </ability>
     <ability>
         <n>Barbed Crescent</n>
@@ -2193,7 +2202,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Special</type>
-        <effects>Cure</effects>
+        <effects>Cure, -status</effects>
     </ability>
     <ability>
         <n>Benediction</n>
@@ -2204,7 +2213,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Special</type>
-        <effects>Cure</effects>
+        <effects>Cure, -status</effects>
     </ability>
     <ability>
         <n>Benediction</n>
@@ -2215,7 +2224,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Special</type>
-        <effects>Cure</effects>
+        <effects>Cure, -status</effects>
     </ability>
     <ability>
         <n>Benediction</n>
@@ -2226,7 +2235,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Special</type>
-        <effects>Cure</effects>
+        <effects>Cure, -status</effects>
     </ability>
     <ability>
         <n>Benediction</n>
@@ -2237,7 +2246,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Special</type>
-        <effects>Cure</effects>
+        <effects>Cure, -status</effects>
     </ability>
     <ability>
         <n>Benediction</n>
@@ -2248,7 +2257,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Special</type>
-        <effects>Cure</effects>
+        <effects>Cure, -status</effects>
     </ability>
     <ability>
         <n>Benthic Typhoon</n>
@@ -4454,7 +4463,7 @@
         <fan>false</fan>
         <cone>true</cone>
         <type>Magical</type>
-        <element>Wind</element>
+        <element>Earth</element>
         <effects>Silence, Paralysis</effects>
     </ability>
     <ability>
@@ -4466,7 +4475,7 @@
         <fan>false</fan>
         <cone>true</cone>
         <type>Magical</type>
-        <element>Wind</element>
+        <element>Earth</element>
         <effects>Silence, Paralysis</effects>
     </ability>
     <ability>
@@ -4478,7 +4487,7 @@
         <fan>false</fan>
         <cone>true</cone>
         <type>Magical</type>
-        <element>Wind</element>
+        <element>Earth</element>
         <effects>Silence, Paralysis</effects>
     </ability>
     <ability>
@@ -4981,7 +4990,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Magical</type>
-        <effects>AGI Down, Accuracy Down, Addle, Attack Down, Bind, Bio, Blindness, Burn, CHR Down, Choke, Curse I, Curse Ii, DEX Down, Defense Down, Dia, Disease, Drown, Elegy, Evasion Down, Flash, Frost, Helix, INT Down, MND Down, Magic Acc Down, Magic Atk Down, Magic Def Down, Magic Evasion Down, Max HP Down, Max MP Down, Max TP Down, Paralysis, Plague, Poison, Rasp, Requiem, STR Down, Shock, Slow, Threnody, VIT Down, Weight</effects>
+        <effects>AGI Down, Accuracy Down, Addle, Attack Down, Bind, Bio, Blindness, Burn, CHR Down, Choke, Curse, Curse II, DEX Down, Defense Down, Dia, Disease, Drown, Elegy, Evasion Down, Flash, Frost, Helix, INT Down, MND Down, Magic Acc. Down, Magic Atk. Down, Magic Def. Down, Magic Evasion Down, Max HP Down, Max MP Down, Max TP Down, Paralysis, Plague, Poison, Rasp, Requiem, STR Down, Shock, Slow, Threnody, VIT Down, Weight</effects>
     </ability>
     <ability>
         <n>Cordon of Apathy</n>
@@ -6598,7 +6607,7 @@
         <cone>false</cone>
         <shape>30'</shape>
         <type>Magical</type>
-        <effects>Stun, Poison, Reset Enmity</effects>
+        <effects>Stun, Poison, Enmity Reset</effects>
     </ability>
     <ability>
         <n>Death Trap</n>
@@ -6610,7 +6619,7 @@
         <cone>false</cone>
         <shape>30'</shape>
         <type>Magical</type>
-        <effects>Stun, Poison, Reset Enmity</effects>
+        <effects>Stun, Poison, Enmity Reset</effects>
     </ability>
     <ability>
         <n>Death Trap</n>
@@ -6622,7 +6631,7 @@
         <cone>false</cone>
         <shape>30'</shape>
         <type>Magical</type>
-        <effects>Stun, Poison, Reset Enmity</effects>
+        <effects>Stun, Poison, Enmity Reset</effects>
     </ability>
     <ability>
         <n>Deathgnash</n>
@@ -7269,7 +7278,8 @@
         <aoe>false</aoe>
         <fan>false</fan>
         <cone>true</cone>
-        <effects></effects>
+        <effects>Accuracy Down</effects>
+        <type>Physical</type>
     </ability>
     <ability>
         <n>Disembowel</n>
@@ -7279,7 +7289,8 @@
         <aoe>false</aoe>
         <fan>false</fan>
         <cone>true</cone>
-        <effects></effects>
+        <effects>Accuracy Down</effects>
+        <type>Physical</type>
     </ability>
     <ability>
         <n>Disgorge</n>
@@ -7557,7 +7568,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Physical</type>
-        <effects>Reset Enmity, Attack Boost</effects>
+        <effects>Enmity Reset, Attack Boost</effects>
     </ability>
     <ability>
         <n>Double Kick</n>
@@ -7709,10 +7720,10 @@
     <ability>
         <n>Draw In</n>
         <self_target>false</self_target>
-        <aoe>false</aoe>
+        <aoe>true</aoe>
         <fan>false</fan>
         <cone>false</cone>
-        <effects></effects>
+        <effects>Draw-In</effects>
     </ability>
     <ability>
         <n>Dread Dive</n>
@@ -7840,7 +7851,7 @@
         <aoe>false</aoe>
         <fan>false</fan>
         <cone>false</cone>
-        <effects>Magic Atk Boost, Magic Def Boost</effects>
+        <effects>Magic Atk. Bonus, Magic Def Boost</effects>
     </ability>
     <ability>
         <n>Dream Shroud</n>
@@ -7850,7 +7861,7 @@
         <aoe>false</aoe>
         <fan>false</fan>
         <cone>false</cone>
-        <effects>Magic Atk Boost, Magic Def Boost</effects>
+        <effects>Magic Atk. Bonus, Magic Def Boost</effects>
     </ability>
     <ability>
         <n>Drill Branch</n>
@@ -7994,9 +8005,9 @@
         <id>258</id>
         <cat>7</cat>
         <self_target>false</self_target>
-        <aoe>false</aoe>
+        <aoe>true</aoe>
         <fan>false</fan>
-        <cone>true</cone>
+        <cone>false</cone>
         <shape>10' cone</shape>
         <type>Magical</type>
         <element>Earth</element>
@@ -8007,9 +8018,9 @@
         <id>1568</id>
         <cat>7</cat>
         <self_target>false</self_target>
-        <aoe>false</aoe>
+        <aoe>true</aoe>
         <fan>false</fan>
-        <cone>true</cone>
+        <cone>false</cone>
         <shape>10' cone</shape>
         <type>Magical</type>
         <element>Earth</element>
@@ -8020,9 +8031,9 @@
         <id>3841</id>
         <cat>7</cat>
         <self_target>false</self_target>
-        <aoe>false</aoe>
+        <aoe>true</aoe>
         <fan>false</fan>
-        <cone>true</cone>
+        <cone>false</cone>
         <shape>10' cone</shape>
         <type>Magical</type>
         <element>Earth</element>
@@ -8776,6 +8787,14 @@
         <effects>Drain, All Stats Down</effects>
     </ability>
     <ability>
+        <n>Essence Jack</n>
+        <self_target>false</self_target>
+        <aoe>false</aoe>
+        <fan>false</fan>
+        <cone>false</cone>
+        <effects>Terror, All Stats Down</effects>
+    </ability>
+    <ability>
         <n>Eternal Damnation</n>
         <id>2111</id>
         <cat>7</cat>
@@ -8918,8 +8937,9 @@
         <self_target>false</self_target>
         <aoe>false</aoe>
         <fan>false</fan>
-        <cone>true</cone>
-        <effects></effects>
+        <cone>false</cone>
+        <effects>Stun</effects>
+        <type>Physical</type>
     </ability>
     <ability>
         <n>Extirpating Salvo</n>
@@ -8928,8 +8948,9 @@
         <self_target>false</self_target>
         <aoe>false</aoe>
         <fan>false</fan>
-        <cone>true</cone>
-        <effects></effects>
+        <cone>false</cone>
+        <effects>Stun</effects>
+        <type>Physical</type>
     </ability>
     <ability>
         <n>Extreme Purgation</n>
@@ -10183,6 +10204,9 @@
         <aoe>true</aoe>
         <fan>false</fan>
         <cone>false</cone>
+        <gaze>true</gaze>
+        <type>Magical</type>
+        <element>Ice</element>
         <effects>Paralysis</effects>
     </ability>
     <ability>
@@ -10193,6 +10217,9 @@
         <aoe>true</aoe>
         <fan>false</fan>
         <cone>false</cone>
+        <gaze>true</gaze>
+        <type>Magical</type>
+        <element>Ice</element>
         <effects>Paralysis</effects>
     </ability>
     <ability>
@@ -11236,7 +11263,7 @@
         <aoe>false</aoe>
         <fan>false</fan>
         <cone>true</cone>
-        <effects></effects>
+        <effects>Damage (percentage-based)</effects>
     </ability>
     <ability>
         <n>Graviton Crux</n>
@@ -12043,7 +12070,7 @@
         <fan>false</fan>
         <cone>true</cone>
         <type>Enfeebling</type>
-        <effects>Stun, Enmity reset</effects>
+        <effects>Stun, Enmity Reset</effects>
     </ability>
     <ability>
         <n>Heavy Bellow</n>
@@ -12054,7 +12081,7 @@
         <fan>false</fan>
         <cone>true</cone>
         <type>Enfeebling</type>
-        <effects>Stun, Enmity reset</effects>
+        <effects>Stun, Enmity Reset</effects>
     </ability>
     <ability>
         <n>Heavy Blow</n>
@@ -12481,11 +12508,11 @@
     <ability>
         <n>Horrid Roar</n>
         <self_target>false</self_target>
-        <aoe>true</aoe>
+        <aoe>false</aoe>
         <fan>false</fan>
         <cone>false</cone>
-        <type>Enfeebling</type>
-        <effects></effects>
+        <type>Magical</type>
+        <effects>Dispel, Enmity Reset</effects>
     </ability>
     <ability>
         <n>Horror Cloud</n>
@@ -14420,10 +14447,10 @@
     <ability>
         <n>Kaleidoscopic Fury</n>
         <self_target>false</self_target>
-        <aoe>false</aoe>
+        <aoe>true</aoe>
         <fan>false</fan>
         <cone>false</cone>
-        <effects></effects>
+        <effects>JA Timers Reset, Dia, All Stats Down</effects>
     </ability>
     <ability>
         <n>Kamaitachi</n>
@@ -18035,7 +18062,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Physical</type>
-        <effects>AGI Down, Accuracy Down, Addle, Attack Down, Bewildered Daze 1, Bewildered Daze 2, Bewildered Daze 3, Bewildered Daze 4, Bewildered Daze 5, Bind, Bio, Blindness, Burn, CHR Down, Choke, Curse I, Curse Ii, DEX Down, Defense Down, Dia, Disease, Drown, Elegy, Evasion Down, Flash, Frost, Helix, INT Down, Inhibit TP, Inundation, Lethargic Daze 1, Lethargic Daze 2, Lethargic Daze 3, Lethargic Daze 4, Lethargic Daze 5, MND Down, Magic Acc Down, Magic Atk Down, Magic Def Down, Magic Evasion Down, Max HP Down, Max MP Down, Max TP Down, Nocturne, Paralysis, Plague, Poison, Rasp, Requiem, STR Down, Shock, Slow, Sluggish Daze 1, Sluggish Daze 2, Sluggish Daze 3, Sluggish Daze 4, Sluggish Daze 5, Threnody, VIT Down, Weakened Daze 1, Weakened Daze 2, Weakened Daze 3, Weakened Daze 4, Weakened Daze 5, Weight</effects>
+        <effects>AGI Down, Accuracy Down, Addle, Attack Down, Bewildered Daze 1, Bewildered Daze 2, Bewildered Daze 3, Bewildered Daze 4, Bewildered Daze 5, Bind, Bio, Blindness, Burn, CHR Down, Choke, Curse, Curse II, DEX Down, Defense Down, Dia, Disease, Drown, Elegy, Evasion Down, Flash, Frost, Helix, INT Down, Inhibit TP, Inundation, Lethargic Daze 1, Lethargic Daze 2, Lethargic Daze 3, Lethargic Daze 4, Lethargic Daze 5, MND Down, Magic Acc. Down, Magic Atk. Down, Magic Def. Down, Magic Evasion Down, Max HP Down, Max MP Down, Max TP Down, Nocturne, Paralysis, Plague, Poison, Rasp, Requiem, STR Down, Shock, Slow, Sluggish Daze 1, Sluggish Daze 2, Sluggish Daze 3, Sluggish Daze 4, Sluggish Daze 5, Threnody, VIT Down, Weakened Daze 1, Weakened Daze 2, Weakened Daze 3, Weakened Daze 4, Weakened Daze 5, Weight</effects>
     </ability>
     <ability>
         <n>Pandemic Nip</n>
@@ -18046,7 +18073,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Physical</type>
-        <effects>AGI Down, Accuracy Down, Addle, Attack Down, Bewildered Daze 1, Bewildered Daze 2, Bewildered Daze 3, Bewildered Daze 4, Bewildered Daze 5, Bind, Bio, Blindness, Burn, CHR Down, Choke, Curse I, Curse Ii, DEX Down, Defense Down, Dia, Disease, Drown, Elegy, Evasion Down, Flash, Frost, Helix, INT Down, Inhibit TP, Inundation, Lethargic Daze 1, Lethargic Daze 2, Lethargic Daze 3, Lethargic Daze 4, Lethargic Daze 5, MND Down, Magic Acc Down, Magic Atk Down, Magic Def Down, Magic Evasion Down, Max HP Down, Max MP Down, Max TP Down, Nocturne, Paralysis, Plague, Poison, Rasp, Requiem, STR Down, Shock, Slow, Sluggish Daze 1, Sluggish Daze 2, Sluggish Daze 3, Sluggish Daze 4, Sluggish Daze 5, Threnody, VIT Down, Weakened Daze 1, Weakened Daze 2, Weakened Daze 3, Weakened Daze 4, Weakened Daze 5, Weight</effects>
+        <effects>AGI Down, Accuracy Down, Addle, Attack Down, Bewildered Daze 1, Bewildered Daze 2, Bewildered Daze 3, Bewildered Daze 4, Bewildered Daze 5, Bind, Bio, Blindness, Burn, CHR Down, Choke, Curse, Curse II, DEX Down, Defense Down, Dia, Disease, Drown, Elegy, Evasion Down, Flash, Frost, Helix, INT Down, Inhibit TP, Inundation, Lethargic Daze 1, Lethargic Daze 2, Lethargic Daze 3, Lethargic Daze 4, Lethargic Daze 5, MND Down, Magic Acc. Down, Magic Atk. Down, Magic Def. Down, Magic Evasion Down, Max HP Down, Max MP Down, Max TP Down, Nocturne, Paralysis, Plague, Poison, Rasp, Requiem, STR Down, Shock, Slow, Sluggish Daze 1, Sluggish Daze 2, Sluggish Daze 3, Sluggish Daze 4, Sluggish Daze 5, Threnody, VIT Down, Weakened Daze 1, Weakened Daze 2, Weakened Daze 3, Weakened Daze 4, Weakened Daze 5, Weight</effects>
     </ability>
     <ability>
         <n>Pandora's Curse</n>
@@ -18055,7 +18082,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Magical</type>
-        <effects>Bio, Attributes Down</effects>
+        <effects>Bio, All Stats Down</effects>
     </ability>
     <ability>
         <n>Pandora's Gift</n>
@@ -19888,7 +19915,7 @@
         <self_target>false</self_target>
         <aoe>false</aoe>
         <fan>false</fan>
-        <cone>true</cone>
+        <cone>false</cone>
         <effects>Plague</effects>
     </ability>
     <ability>
@@ -20635,7 +20662,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Magical</type>
-        <effects>Magic Acc Down, Accuracy Down</effects>
+        <effects>Magic Acc. Down, Accuracy Down</effects>
     </ability>
     <ability>
         <n>Rousing Samba</n>
@@ -20666,6 +20693,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <effects>Stun</effects>
+        <type>Physical</type>
     </ability>
     <ability>
         <n>Royal Bash</n>
@@ -20676,6 +20704,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <effects>Stun</effects>
+        <type>Physical</type>
     </ability>
     <ability>
         <n>Royal Bash</n>
@@ -20686,6 +20715,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <effects>Stun</effects>
+        <type>Physical</type>
     </ability>
     <ability>
         <n>Royal Decree</n>
@@ -21671,7 +21701,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Physical</type>
-        <effects>Attributes Down</effects>
+        <effects>All Stats Down</effects>
     </ability>
     <ability>
         <n>Searing Tempest</n>
@@ -24107,7 +24137,7 @@
         <self_target>false</self_target>
         <aoe>false</aoe>
         <fan>false</fan>
-        <cone>true</cone>
+        <cone>false</cone>
         <effects>Stun</effects>
     </ability>
     <ability>
@@ -25229,7 +25259,7 @@
         <fan>false</fan>
         <cone>true</cone>
         <type>Physical</type>
-        <effects>HP to 1, Enmity reset</effects>
+        <effects>HP to 1, Enmity Reset</effects>
     </ability>
     <ability>
         <n>Tartaric Sigil</n>
@@ -27164,7 +27194,7 @@
         <cone>false</cone>
         <type>Magical</type>
         <element>Light</element>
-        <effects>Amnesia, Knockback, Enmity reset</effects>
+        <effects>Amnesia, Knockback, Enmity Reset</effects>
     </ability>
     <ability>
         <n>Velkkan Ambush</n>
@@ -27931,7 +27961,7 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Magical</type>
-        <effects>AGI Down, Accuracy Down, Addle, Attack Down, Bio, Blindness, Burn, CHR Down, Choke, DEX Down, Defense Down, Dia, Drown, Evasion Down, Frost, INT Down, MND Down, Magic Acc Down, Magic Atk Down, Magic Def Down, Paralysis, Poison, Rasp, STR Down, Shock, Silence, Slow, VIT Down, Weight</effects>
+        <effects>AGI Down, Accuracy Down, Addle, Attack Down, Bio, Blindness, Burn, CHR Down, Choke, DEX Down, Defense Down, Dia, Drown, Evasion Down, Frost, INT Down, MND Down, Magic Acc. Down, Magic Atk. Down, Magic Def. Down, Paralysis, Poison, Rasp, STR Down, Shock, Silence, Slow, VIT Down, Weight</effects>
     </ability>
     <ability>
         <n>Warcry</n>
@@ -28085,7 +28115,7 @@
         <fan>false</fan>
         <cone>true</cone>
         <type>Magical</type>
-        <effects>Attributes Down</effects>
+        <effects>All Stats Down</effects>
     </ability>
     <ability>
         <n>Weapon Bash</n>
@@ -29076,6 +29106,6 @@
         <fan>false</fan>
         <cone>false</cone>
         <type>Magical</type>
-        <effects>Reset Enmity, Inhibit TP</effects>
+        <effects>Enmity Reset, Inhibit TP</effects>
     </ability>
 </abilities>
