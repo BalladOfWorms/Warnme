@@ -1,3 +1,4 @@
+<img width="556" height="153" alt="Screenshot 2026-07-31 173510" src="https://github.com/user-attachments/assets/a4a3cb7d-f809-4b15-801c-9a9004e0ec43" />
 # WarnMe
 A Windower 4 addon for Final Fantasy XI
 
