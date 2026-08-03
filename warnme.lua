@@ -38,7 +38,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ]]
 
 _addon.name = 'WarnMe'
 _addon.author = 'Deridjian'
-_addon.version = '1.2'
+_addon.version = '1.2.3'
 _addon.command = 'wm'
 
 config = require('config')
@@ -225,22 +225,82 @@ end
 load_ability_info()
 load_ability_info_custom()
 
+-- WHICH FIELD CARRIES THE ID DEPENDS ON THE CATEGORY, and the packet
+-- offers two that both look plausible.
+--
+--   6 (job ability): the id is the packet's own Param. The ACTION param
+--       is the VALUE -- damage, HP restored, or 0 -- so reading that as
+--       an id turned a mob merely using a JA into an on-screen warning
+--       reading 'Unknown ability (<some number>)' with no move behind
+--       it. (Debuffed keys Corsair's Light Shot off `act.category == 6
+--       and act.param == 131`, which is that job ability's id: the same
+--       field, arrived at independently.)
+--   7 (weapon skill / TP move start) and 8 (casting start): the move
+--       being readied is in the ACTION's param, which is where the rest
+--       of this addon has always read it from.
+function action_id_for(action, category)
+    if category == 6 then
+        return action.param
+    end
+    local a1 = action.targets[1] and action.targets[1].actions
+               and action.targets[1].actions[1]
+    return a1 and a1.param
+end
+
+-- Anything that reaches the display with an id no resource file knows
+-- gets written down once, with BOTH param fields and the message id,
+-- because those three are what tell a real unnamed move apart from a row
+-- that was never an ability. Capped: this must never become a file that
+-- grows while you play.
+local unknown_logged, UNKNOWN_LOG_MAX = 0, 50
+
+function log_unknown_action(action, category, ability_id)
+    if unknown_logged >= UNKNOWN_LOG_MAX then return end
+    unknown_logged = unknown_logged + 1
+    local a1 = action.targets[1] and action.targets[1].actions
+               and action.targets[1].actions[1]
+    local actor = windower.ffxi.get_mob_by_id(action.actor_id)
+    local f = io.open(windower.addon_path .. 'warnme_unknown.txt', 'a')
+    if not f then return end
+    f:write(string.format(
+        '%s  category %d  id %s  packet param %s  action param %s  '
+        .. 'message %s  actor %s\n',
+        os.date('%Y-%m-%d %H:%M:%S'), category, tostring(ability_id),
+        tostring(action.param), tostring(a1 and a1.param),
+        tostring(a1 and a1.message),
+        actor and actor.name or '?'))
+    f:close()
+end
+
+-- Returns nil when this row is not worth a warning at all -- and draws
+-- nothing in that case, so the caller must check before building a body.
 function display_action(action, category)
     local language = windower.ffxi.get_info().language == "English" and 'en' or 'ja'
-    local ability_id = action.targets[1].actions[1].param
+    local ability_id = action_id_for(action, category)
     local categories = {[6]="job_abilities", [7]="monster_abilities", [8]="spells"}
-    -- Unknown IDs happen (new content ahead of the resource files, and
-    -- odd category 6 rows); show the number rather than erroring out of
-    -- the event handler, which would silently kill later warnings too.
     local pool = res[categories[category]]
-    local entry = pool and pool[ability_id]
+    local entry = ability_id and pool and pool[ability_id]
     local action_name = entry and entry[language]
-                        or string.format('Unknown ability (%d)', ability_id)
+
+    if not action_name then
+        log_unknown_action(action, category, ability_id)
+        -- A readied TP move or a cast is a real event even when the name
+        -- will not resolve: something IS coming, which is the whole job
+        -- of this addon, and new content does run ahead of the resource
+        -- files. A job ability is not the same thing -- there is nothing
+        -- to step out of, and an unresolved one is far likelier to be a
+        -- row that was never an ability than to be new content.
+        if category == 6 then
+            return nil
+        end
+        action_name = string.format('Unknown ability (%s)',
+                                    tostring(ability_id))
+    end
 
     ability:text(action_name)
     align_center(ability, 'ability', action_name)
     ability:show()
-    
+
     return ability_id, action_name
 end
 
@@ -385,16 +445,19 @@ windower.register_event('action', function(action)
             (action.category == 6 or action.category == 7 or (action.category == 8 and settings.ability.show.spells))
         then
             local ability_id, ability_name = display_action(action, action.category)
-            local details_string = nil
-            if settings.details.show.actor or settings.details.show.target then
-                details_string = details_line_for(action)
-            end
-            local targeting_line, kind_line, effects_line =
-                info_lines_for(action.category, ability_id, ability_name)
-            show_body(details_string, targeting_line, kind_line, effects_line)
+            -- display_action drew nothing and said so: not a warning.
+            if ability_name then
+                local details_string = nil
+                if settings.details.show.actor or settings.details.show.target then
+                    details_string = details_line_for(action)
+                end
+                local targeting_line, kind_line, effects_line =
+                    info_lines_for(action.category, ability_id, ability_name)
+                show_body(details_string, targeting_line, kind_line, effects_line)
 
-            if not forced then
-                coroutine.schedule(hide_and_clear, settings.timeout)
+                if not forced then
+                    coroutine.schedule(hide_and_clear, settings.timeout)
+                end
             end
         end
     end
